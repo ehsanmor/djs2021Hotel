@@ -7,16 +7,18 @@ public class Room {
     private String description;
     private int capacity;
     private int price;
+    private String status;
 
     public Room(){}
 
-    public Room(int id, String number, String type, String description, int capacity, int price) {
+    public Room(int id, String number, String type, String description, int capacity, int price, String status) {
         this.id = id;
         this.number = number;
         this.type = type;
         this.description = description;
         this.capacity = capacity;
         this.price = price;
+        this.status = status;
     }
 
     public int getId() {
@@ -67,6 +69,14 @@ public class Room {
         this.price = price;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Room{" +
@@ -76,6 +86,7 @@ public class Room {
                 ", description='" + description + '\'' +
                 ", capacity=" + capacity +
                 ", price=" + price +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

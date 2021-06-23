@@ -1,32 +1,30 @@
 package com.capgemini.hotel.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Reservation {
     private int id;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
-    private int delayTime;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private int price;
     private String paymentType;
     private boolean isEnded;
     private Room room;
     private Guest guest;
-    private Receptionist receptionist;
+    private Employee employee;
 
     public Reservation() {}
 
-    public Reservation(int id, LocalDateTime startTime, LocalDateTime endTime, int delayTime, int price, String paymentType, boolean isEnded, Room room, Guest guest, Receptionist receptionist) {
+    public Reservation(int id, LocalDate startDate,LocalDate endDate, int price, String paymentType, boolean isEnded, Room room, Guest guest, Employee employee) {
         this.id = id;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.delayTime = delayTime;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.price = price;
         this.paymentType = paymentType;
         this.isEnded = isEnded;
         this.room = room;
         this.guest = guest;
-        this.receptionist = receptionist;
+        this.employee = employee;
     }
 
     public int getId() {
@@ -37,28 +35,20 @@ public class Reservation {
         this.id = id;
     }
 
-    public LocalDateTime getStartTime() {
-        return startTime;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
-        this.startTime = startTime;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
-    public LocalDateTime getEndTime() {
-        return endTime;
+    public LocalDate getEndDate() {
+        return endDate;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
-    }
-
-    public int getDelayTime() {
-        return delayTime;
-    }
-
-    public void setDelayTime(int delayTime) {
-        this.delayTime = delayTime;
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     public int getPrice() {
@@ -101,27 +91,26 @@ public class Reservation {
         this.guest = guest;
     }
 
-    public Receptionist getReceptionist() {
-        return receptionist;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setReceptionist(Receptionist receptionist) {
-        this.receptionist = receptionist;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", delayTime=" + delayTime +
+                ", startTime=" + startDate +
+                ", endTime=" + endDate +
                 ", price=" + price +
                 ", paymentType='" + paymentType + '\'' +
                 ", isEnded=" + isEnded +
                 ", room=" + room +
                 ", guest=" + guest +
-                ", receptionist=" + receptionist +
+                ", employee=" + employee +
                 '}';
     }
 }

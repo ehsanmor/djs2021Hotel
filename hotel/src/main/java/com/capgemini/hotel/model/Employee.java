@@ -1,6 +1,6 @@
 package com.capgemini.hotel.model;
 
-public class Cleaner {
+public class Employee {
     private int id;
     private String firstName;
     private String lastName;
@@ -9,9 +9,9 @@ public class Cleaner {
     private String telephoneNumber;
     private String role;
 
-    public Cleaner() {}
+    public Employee() {}
 
-    public Cleaner(int id, String firstName, String lastName, String email, String password, String telephoneNumber, String role) {
+    public Employee(int id, String firstName, String lastName, String email, String password, String telephoneNumber, String role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -79,7 +79,7 @@ public class Cleaner {
 
     @Override
     public String toString() {
-        return "Cleaner{" +
+        return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
