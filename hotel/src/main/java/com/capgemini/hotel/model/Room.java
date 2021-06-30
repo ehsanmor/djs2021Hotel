@@ -1,24 +1,29 @@
 package com.capgemini.hotel.model;
 
+import java.time.LocalDate;
+import java.util.Arrays;
+
 public class Room {
-    private int id;
-    private String number;
+    private int id; // InventoryId
     private String type;
-    private String description;
+    private String[] facilities;
     private int capacity;
     private int price;
     private String status;
+    private LocalDate lastBigCleaningDate;
+    private int numberOfDaysAfterBigClean;
 
     public Room(){}
 
-    public Room(int id, String number, String type, String description, int capacity, int price, String status) {
+    public Room(int id, String type, String[] facilities, int capacity, int price, String status, LocalDate lastBigCleaningDate, int numberOfDaysAfterBigClean) {
         this.id = id;
-        this.number = number;
         this.type = type;
-        this.description = description;
+        this.facilities = facilities;
         this.capacity = capacity;
         this.price = price;
         this.status = status;
+        this.lastBigCleaningDate = lastBigCleaningDate;
+        this.numberOfDaysAfterBigClean = numberOfDaysAfterBigClean;
     }
 
     public int getId() {
@@ -29,14 +34,6 @@ public class Room {
         this.id = id;
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
     public String getType() {
         return type;
     }
@@ -45,12 +42,12 @@ public class Room {
         this.type = type;
     }
 
-    public String getDescription() {
-        return description;
+    public String[] getFacilities() {
+        return facilities;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setFacilities(String[] facilities) {
+        this.facilities = facilities;
     }
 
     public int getCapacity() {
@@ -77,16 +74,33 @@ public class Room {
         this.status = status;
     }
 
+    public LocalDate getLastBigCleaningDate() {
+        return lastBigCleaningDate;
+    }
+
+    public void setLastBigCleaningDate(LocalDate lastBigCleaningDate) {
+        this.lastBigCleaningDate = lastBigCleaningDate;
+    }
+
+    public int getNumberOfDaysAfterBigClean() {
+        return numberOfDaysAfterBigClean;
+    }
+
+    public void setNumberOfDaysAfterBigClean(int numberOfDaysAfterBigClean) {
+        this.numberOfDaysAfterBigClean = numberOfDaysAfterBigClean;
+    }
+
     @Override
     public String toString() {
         return "Room{" +
                 "id=" + id +
-                ", number='" + number + '\'' +
                 ", type='" + type + '\'' +
-                ", description='" + description + '\'' +
+                ", facilities=" + Arrays.toString(facilities) +
                 ", capacity=" + capacity +
                 ", price=" + price +
                 ", status='" + status + '\'' +
+                ", lastBigCleaningDate=" + lastBigCleaningDate +
+                ", numberOfDaysAfterBigClean=" + numberOfDaysAfterBigClean +
                 '}';
     }
 }
