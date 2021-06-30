@@ -1,6 +1,10 @@
 package com.capgemini.hotel.model;
 
+import javax.persistence.Entity;
+
+
 public class Employee {
+
     private int id;
     private String firstName;
     private String lastName;
