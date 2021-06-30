@@ -6,7 +6,12 @@ public class Reservation {
     private int id;
     private LocalDate startDate;
     private LocalDate endDate;
-    private int price;
+    private LocalDate checkIn;
+    private LocalDate checkOut;
+    private LocalDate paymentDate;
+    private boolean isChecked;
+    private double price;
+    private double additionalPrice;
     private String paymentType;
     private boolean isEnded;
     private Room room;
@@ -15,16 +20,21 @@ public class Reservation {
 
     public Reservation() {}
 
-    public Reservation(int id, LocalDate startDate,LocalDate endDate, int price, String paymentType, boolean isEnded, Room room, Guest guest, Employee employee) {
+    public Reservation(int id, LocalDate startDate, LocalDate endDate, LocalDate checkIn, LocalDate checkOut,LocalDate paymentDate, double price, double additionalPrice, String paymentType, boolean isEnded, Room room, Guest guest, Employee employee, boolean isChecked) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.paymentDate = paymentDate;
         this.price = price;
+        this.additionalPrice = additionalPrice;
         this.paymentType = paymentType;
         this.isEnded = isEnded;
         this.room = room;
         this.guest = guest;
         this.employee = employee;
+        this.isChecked = isChecked;
     }
 
     public int getId() {
@@ -51,12 +61,44 @@ public class Reservation {
         this.endDate = endDate;
     }
 
-    public int getPrice() {
+    public LocalDate getCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(LocalDate checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public LocalDate getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(LocalDate checkOut) {
+        this.checkOut = checkOut;
+    }
+
+    public LocalDate getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(LocalDate paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getAdditionalPrice() {
+        return additionalPrice;
+    }
+
+    public void setAdditionalPrice(double additionalPrice) {
+        this.additionalPrice = additionalPrice;
     }
 
     public String getPaymentType() {
@@ -99,13 +141,26 @@ public class Reservation {
         this.employee = employee;
     }
 
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
-                ", startTime=" + startDate +
-                ", endTime=" + endDate +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", checkIn=" + checkIn +
+                ", checkOut=" + checkOut +
+                ", paymentDate=" + paymentDate +
+                ", isChecked=" + isChecked +
                 ", price=" + price +
+                ", additionalPrice=" + additionalPrice +
                 ", paymentType='" + paymentType + '\'' +
                 ", isEnded=" + isEnded +
                 ", room=" + room +
