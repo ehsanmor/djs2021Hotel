@@ -59,9 +59,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public Employee removeEmployeeById(Integer id) {
         Employee employee=new Employee();
         for(Employee emp: employees){
-            if(id == emp.getId()){
-                employees.remove(emp);
+            if(emp.getId()==id){
                 employee=emp;
+                employees.remove(emp);
+
                 break;
             }
 
@@ -77,7 +78,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             if(id == emp.getId()){
                 int index=employees.indexOf(emp);
                 employees.set(index,employeeParam);
-                employee=emp;
+                employee=employees.set(index,employeeParam);
+                employee.setId(id);
                 break;
             }
         }

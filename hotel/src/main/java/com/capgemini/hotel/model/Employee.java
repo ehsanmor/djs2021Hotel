@@ -1,6 +1,6 @@
 package com.capgemini.hotel.model;
 
-import javax.persistence.Entity;
+
 
 
 public class Employee {
