@@ -8,10 +8,11 @@ public class Guest {
     private String password;
     private String telephoneNumber;
     private String type;
+    private int numberOfReservation;
 
     public Guest(){}
 
-    public Guest(int id, String firstName, String lastName, String email, String password, String telephoneNumber, String type) {
+    public Guest(int id, String firstName, String lastName, String email, String password, String telephoneNumber, String type, int numberOfReservation) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -19,6 +20,7 @@ public class Guest {
         this.password = password;
         this.telephoneNumber = telephoneNumber;
         this.type = type;
+        this.numberOfReservation = numberOfReservation;
     }
 
     public int getId() {
@@ -77,6 +79,14 @@ public class Guest {
         this.type = type;
     }
 
+    public int getNumberOfReservation() {
+        return numberOfReservation;
+    }
+
+    public void setNumberOfReservation(int numberOfReservation) {
+        this.numberOfReservation = numberOfReservation;
+    }
+
     @Override
     public String toString() {
         return "Guest{" +
@@ -87,6 +97,7 @@ public class Guest {
                 ", password='" + password + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 ", type='" + type + '\'' +
+                ", numberOfReservation=" + numberOfReservation +
                 '}';
     }
 }
