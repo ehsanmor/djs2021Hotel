@@ -8,20 +8,20 @@ public class Room {
     private String type;
     private String[] facilities;
     private int capacity;
-    private int price;
-    private String status;
+    private double price;
+    private boolean underConstruction;
     private LocalDate lastBigCleaningDate;
     private int numberOfDaysAfterBigClean;
 
     public Room(){}
 
-    public Room(int id, String type, String[] facilities, int capacity, int price, String status, LocalDate lastBigCleaningDate, int numberOfDaysAfterBigClean) {
+    public Room(int id, String type, String[] facilities, double price, LocalDate lastBigCleaningDate, int numberOfDaysAfterBigClean, int capacity, boolean underConstruction) {
         this.id = id;
         this.type = type;
         this.facilities = facilities;
         this.capacity = capacity;
         this.price = price;
-        this.status = status;
+        this.underConstruction = underConstruction;
         this.lastBigCleaningDate = lastBigCleaningDate;
         this.numberOfDaysAfterBigClean = numberOfDaysAfterBigClean;
     }
@@ -58,20 +58,20 @@ public class Room {
         this.capacity = capacity;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean isUnderConstruction() {
+        return underConstruction;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setUnderConstruction(boolean underConstruction) {
+        this.underConstruction = underConstruction;
     }
 
     public LocalDate getLastBigCleaningDate() {
@@ -98,7 +98,7 @@ public class Room {
                 ", facilities=" + Arrays.toString(facilities) +
                 ", capacity=" + capacity +
                 ", price=" + price +
-                ", status='" + status + '\'' +
+                ", underConstruction=" + underConstruction +
                 ", lastBigCleaningDate=" + lastBigCleaningDate +
                 ", numberOfDaysAfterBigClean=" + numberOfDaysAfterBigClean +
                 '}';
