@@ -12,6 +12,7 @@ public class Room {
     private boolean underConstruction;
     private LocalDate lastBigCleaningDate;
     private int numberOfDaysAfterBigClean;
+//    private boolean roomNeedsCleaning;
 
     public Room(){}
 

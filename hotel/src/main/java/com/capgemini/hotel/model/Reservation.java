@@ -9,18 +9,18 @@ public class Reservation {
     private LocalDate checkIn;
     private LocalDate checkOut;
     private LocalDate paymentDate;
-    private boolean isChecked;
+    private boolean resChecked;
     private double price;
     private double additionalPrice;
     private String paymentType;
-    private boolean isEnded;
+    private boolean resEnded;
     private Room room;
     private Guest guest;
     private Employee employee;
 
     public Reservation() {}
 
-    public Reservation(int id, LocalDate startDate, LocalDate endDate, LocalDate checkIn, LocalDate checkOut,LocalDate paymentDate, double price, double additionalPrice, String paymentType, boolean isEnded, Room room, Guest guest, Employee employee, boolean isChecked) {
+    public Reservation(int id, LocalDate startDate, LocalDate endDate, LocalDate checkIn, LocalDate checkOut, LocalDate paymentDate, double price, double additionalPrice, String paymentType, boolean resEnded, Room room, Guest guest, Employee employee, boolean resChecked) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -30,11 +30,11 @@ public class Reservation {
         this.price = price;
         this.additionalPrice = additionalPrice;
         this.paymentType = paymentType;
-        this.isEnded = isEnded;
+        this.resEnded = resEnded;
         this.room = room;
         this.guest = guest;
         this.employee = employee;
-        this.isChecked = isChecked;
+        this.resChecked = resChecked;
     }
 
     public int getId() {
@@ -109,12 +109,12 @@ public class Reservation {
         this.paymentType = paymentType;
     }
 
-    public boolean isEnded() {
-        return isEnded;
+    public boolean isResEnded() {
+        return resEnded;
     }
 
-    public void setEnded(boolean ended) {
-        isEnded = ended;
+    public void setResEnded(boolean resEnded) {
+        this.resEnded = resEnded;
     }
 
     public Room getRoom() {
@@ -141,12 +141,12 @@ public class Reservation {
         this.employee = employee;
     }
 
-    public boolean isChecked() {
-        return isChecked;
+    public boolean isResChecked() {
+        return resChecked;
     }
 
-    public void setChecked(boolean checked) {
-        isChecked = checked;
+    public void setResChecked(boolean resChecked) {
+        this.resChecked = resChecked;
     }
 
     @Override
@@ -158,11 +158,11 @@ public class Reservation {
                 ", checkIn=" + checkIn +
                 ", checkOut=" + checkOut +
                 ", paymentDate=" + paymentDate +
-                ", isChecked=" + isChecked +
+                ", isChecked=" + resChecked +
                 ", price=" + price +
                 ", additionalPrice=" + additionalPrice +
                 ", paymentType='" + paymentType + '\'' +
-                ", isEnded=" + isEnded +
+                ", isEnded=" + resEnded +
                 ", room=" + room +
                 ", guest=" + guest +
                 ", employee=" + employee +
