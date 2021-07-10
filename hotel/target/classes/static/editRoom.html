@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/util.js"></script>
+<!--  <script>-->
+<!--    $(function () {-->
+<!--      $("#includedContent").load("header.html");-->
+<!--    });-->
+<!--  </script>-->
+  <script type="text/javascript" src="js/getRoom.js"></script>
+  <title>Edit Room</title>
+</head>
+
+<body>
+  <div id="includedContent"></div>
+  <div class="container">
+    <form id="formEditRoom" method="GET" action="http://localhost:8080/api/room/">
+      <div class="input_editroom">
+        <label for="roomId">Room Id</label><br>
+        <input id="roomId" name="roomId" type="text">
+      </div>
+      <div class="input_editroom">
+        <label>Room type</label><br>
+        <!--        <input id="roomType" name="roomType" type="text">-->
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="roomType" id="roomTypeEconomy" value="economy">
+          <label class="form-check-label" for="roomTypeEconomy">
+            Economy
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="roomType" id="roomTypeNormal" value="normal">
+          <label class="form-check-label" for="roomTypeNormal">
+            Normal
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="roomType" id="roomTypeLuxurious" value="luxurious">
+          <label class="form-check-label" for="roomTypeLuxurious">
+            Luxurious
+          </label>
+        </div>
+      </div>
+
+      <div class="input_editroom">
+        <label for="roomSize">Room max Capacity:</label><br>
+        <input id="roomSize" name="roomSize" type="text">
+      </div>
+      <div class="input_editroom">
+        <label for="roomPrice">Room price:</label><br>
+        <input id="roomPrice" name="roomPrice" type="text">
+      </div>
+      <div id="input-facilities">
+        <label>Facilities</label><br>
+        <input type="checkbox" id="tv" name="tv" value="TV">
+        <label for="tv"> TV</label><br>
+        <input type="checkbox" id="miniBar" name="miniBar" value="Mini Bar">
+        <label for="miniBar"> Mini Bar</label><br>
+        <input type="checkbox" id="mountainView" name="mountainview" value="Mountain View">
+        <label for="mountainView"> Mountain View</label><br>
+        <input type="checkbox" id="lakeView" name="lakeview" value="Lake View">
+        <label for="lakeView"> Lake View</label><br>
+        <input type="checkbox" id="sauna" name="sauna" value="Sauna">
+        <label for="sauna"> Sauna</label><br>
+
+        <input id="roomFacilities" name="roomFacilities" type="hidden" />
+
+      </div>
+      <div class="row">
+        <div class='col-sm-6'>
+          <label for="roomUnderConstruction">Is room under construction?</label>
+          <select class="form-control" id="roomUnderConstruction" name="roomUnderConstruction">
+            <option value="0">Select....</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class='col-sm-6'>
+          <label for="roomLastBigClean">Last Big Clean date on:</label>
+          <i class="fa fa-calendar inline"></i>
+          <input type='date' class="form-control inline" id='roomLastBigClean' name="roomLastBigClean" />
+        </div>
+      </div>
+      <input class="btn btn-primary btn-lg" id="submit" name="submit" type="button" value="Update" /><br>
+    </form>
+  </div>
+</body>
+
+</html>
