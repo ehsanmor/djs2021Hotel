@@ -99,21 +99,22 @@ $(function getAllRooms() {
                   },
                 {
                     title: "Edit",
-                    data: "roomId",
+                    data: "id",
                     "searchable": false,
                     "sortable": false,
                     "render": function (data) {
-                        var roomIdEdit = "editRoom.html?id=" + data;
+                        console.log(data);
+                        var roomIdEdit = "editroom.html?id=" + data;
                         return '<a href="' + roomIdEdit + '" class="editRoom"><i class="fa fa-pencil fa-fw"></a>';
                     }
                 },
                 {
                     title: "Delete",
-                    data: "roomId",
+                    data: "id",
                     "searchable": false,
                     "sortable": false,
                     "render": function (data) {
-                        var roomIdEdit = "deleteRoom.html?id=" + data;
+                        var roomIdEdit = "deleteroom.html?id=" + data;
                         return '<a href="' + roomIdEdit + '" class="deleteRoom"><i class="fa fa-trash fa-fw"></a>';
                     }
                 }
