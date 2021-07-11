@@ -1,3 +1,6 @@
+    $(function () {
+      $("#includedContent").load("header.html");
+    });
 
 function getFacilities() {
   var form = document.getElementById('input-facilities');
@@ -14,7 +17,7 @@ function getFacilities() {
 function showFacilities(facilities) {
   var form = document.getElementById('input-facilities');
   var myArray = [];
-  myArray = facilities.toString().split('|');
+  myArray = facilities.toString().split(',');
   form.querySelectorAll('input').forEach(function (input) {
     if (input.type === 'checkbox') {
       for (let i = 0, len = myArray.length; i < len; i++) {

@@ -43,8 +43,9 @@ body {
     display: none;
   }
   .navbar a.icon {
-    float: right;
+    float: right !important;
     display: block;
+    width: 30%;
   }
 }
 

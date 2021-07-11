@@ -8,23 +8,23 @@ $(function () {
 
     function getRoomById(id) {
         $.ajax({
-            url: 'http://localhost:8080/api/room/' + id,
+            url: 'http://localhost:8080/hotel/room/' + id,
             type: 'GET',
         }).done(function (data) {
 //            console.log(data.roomType);
-            $('#roomId').val(data.roomId);
-            var selectedRoomType = data.roomType.toLowerCase();
+            $('#roomId').val(data.id);
+            var selectedRoomType = data.type.toLowerCase();
             $('input:radio[name="roomType"]').filter('[value="'+ selectedRoomType +'"]').attr('checked', true);
 //            $('#roomType').val(data.roomType);
-            $('#roomSize').val(data.roomSize);
-            $('#roomPrice').val(data.roomPrice);
-            $('#roomLastBigClean').val(data.roomLastBigClean);
-            $('#roomBigCleanAfterInDays').val(data.roomBigCleanAfterInDays);
+            $('#roomSize').val(data.capacity);
+            $('#roomPrice').val(data.price);
+            $('#roomLastBigClean').val(data.lastBigCleaningDate);
+            $('#roomBigCleanAfterInDays').val(data.numberOfDaysAfterBigClean);
             var selId = document.getElementById("roomUnderConstruction");
-            selId.value = data.roomUnderConstruction?"yes":"no";
+            selId.value = data.underConstruction?"yes":"no";
 //            $('#roomUnderConstruction').value = data.roomUnderConstruction?1:2;
 
-            showFacilities(data.roomFacilities.toString());
+            showFacilities(data.facilities.toString());
         });
     }
 
@@ -32,7 +32,7 @@ $(function () {
     $("#submit").on('click', function () {
         getFacilities();
         $.ajax({
-            url: 'http://localhost:8080/api/room/add',
+            url: 'http://localhost:8080/hotel/room/add',
             type: 'PUT',
             contentType: 'application/json',
             dataType: "json",
