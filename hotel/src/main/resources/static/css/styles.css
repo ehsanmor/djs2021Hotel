@@ -89,6 +89,9 @@ body {
     background-color: #327D83 !important;
 }
 
+#resortLogo {
+    height: 150px;
+}
 /* Navigation links */
 .navbar a {
   float: left;
