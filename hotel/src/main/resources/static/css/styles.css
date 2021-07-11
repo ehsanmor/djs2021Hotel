@@ -96,13 +96,16 @@ body {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  background-color: #327D83;
+  border-radius: 15px;
+  width: 15%;
 }
 
 /* The subnavigation menu */
 .subnav {
   float: left;
   overflow: hidden;
+  width: 15%;
+  border-radius: 15px 15px 0px 0px;
 }
 
 /* Subnav button */
@@ -118,7 +121,7 @@ body {
 }
 
 /* Add background color to navigation links on hover */
-.navbar a:hover, .subnav:hover .subnavbtn {
+.navbar a:hover, .subnav:hover, .subnav:hover .subnavbtn {
   background-color: #3BB0C1;
 }
 
@@ -142,8 +145,9 @@ body {
 
 /* Add a grey background color on hover */
 .subnav-content a:hover {
-  background-color: black;
+  background-color: #327D83;
   color: white;
+  border-radius: 0px 0px 15px 15px;
 }
 
 /* When you move the mouse over the subnav container, open the subnav content */
