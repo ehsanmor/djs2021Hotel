@@ -49,30 +49,45 @@ body {
   }
 }
 
-/**
-
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute !important;
     right: 0;
     top: 0;
   }
 
-  .topnav.responsive a {
+  .navbar.responsive a,
+  .navbar.responsive .subnav,
+  .navbar.responsive .subnav .subnavbtn,
+  .navbar.responsive .subnav .subnavbtn .subnav-content a{
     width: 100%;
     display: block;
     text-align: left;
+    padding: 14px 16px;
   }
 
-  .topnav.responsive .dropdown {float: none;width:100%;}
-  .topnav.responsive .dropdown-content {position: relative;}
-  .topnav.responsive .dropdown{
+    .navbar .responsive a:hover, .subnav:hover .subnavbtn,
+    .navbar .responsive a:hover, .subnav:hover .subnavbtn:hover,
+    .navbar.responsive .subnav .subnavbtn .subnav-content a{
+      display:block;
+      background-color: #555;
+      color: white;
+
+    }
+}
+/**
+
+
+
+  .navbar.responsive .subnav {float: none;width:100%;}
+  .navbar.responsive .subnav-content {position: relative;}
+  .navbar.responsive .subnav{
     display: inline-block;
     width: 100%;
   }
 
-  .topnav .responsive a:hover, .dropdown:hover .dropbtn{
+  .navbar .responsive a:hover, .subnav:hover .subnavbtn{
     background-color: #555;
     color: white;
   }

@@ -39,7 +39,6 @@ function addRoomsFromTestData(){
                 "roomNeedsCleaning": roomNeedsCleaningCheck(value["roomLastBigClean"], value["roomBigCleanAfterInDays"])
             });
 
-//    console.log(index + ": " + postData);
             $.ajax({
                 url: 'http://localhost:8080/hotel/room/add',
                 type: 'PUT',
@@ -103,7 +102,7 @@ $(function getAllRooms() {
                     "searchable": false,
                     "sortable": false,
                     "render": function (data) {
-                        console.log(data);
+//                        console.log(data);
                         var roomIdEdit = "editroom.html?id=" + data;
                         return '<a href="' + roomIdEdit + '" class="editRoom"><i class="fa fa-pencil fa-fw"></a>';
                     }

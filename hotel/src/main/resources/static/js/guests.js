@@ -19,7 +19,12 @@ function getAllGuests() {
                 { data: "firstName", title: "First Name" },
                 { data: "lastName", title: "Last Name" },
                 { data: "email", title: "Email" },
-                { data: "password", title: "Password" },
+                { data: "password",
+                  title: "Password",
+                  render: function (data) {
+                          return "*********";
+                        }
+                 },
                 { data: "telephoneNumber", title: "Telephone Number" },
                 { data: "type", title: "Type"},
                 { data: "numberOfReservation", title: "Number Of Reservation"},
