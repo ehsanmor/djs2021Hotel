@@ -165,10 +165,10 @@ public class ReservationRepositoryImpl implements ReservationRepository{
         reservationToBeUpdated.setCheckOut(reservation.getCheckOut());
         reservationToBeUpdated.setPaymentDate(reservation.getPaymentDate());
         reservationToBeUpdated.setPaymentType(reservation.getPaymentType());
-        reservationToBeUpdated.setChecked(reservation.isChecked());
+        reservationToBeUpdated.setResChecked(reservation.isResChecked());
         reservationToBeUpdated.setStartDate(reservation.getStartDate());
         reservationToBeUpdated.setEndDate(reservation.getEndDate());
-        reservationToBeUpdated.setEnded(reservation.isEnded());
+        reservationToBeUpdated.setResEnded(reservation.isResEnded());
         reservationToBeUpdated.setEmployee(reservation.getEmployee());
         reservationToBeUpdated.setRoom(reservation.getRoom());
         reservationToBeUpdated.setGuest(reservation.getGuest());

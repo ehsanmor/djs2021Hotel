@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#includedContent").load("header.html");
+        });
+    </script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/getRoom.js"></script>
+    <title>Add New Room</title>
+</head>
+
+<body>
+    <div id="includedContent"></div>
+    <div class="container">
+        <form>
+            <div class="input_addroom">
+                <label for="roomId">Room Id</label><br>
+                <input id="roomId" name="roomId" type="text">
+            </div>
+            <div class="input_addroom">
+                <label for="roomType">Room type</label><br>
+                <input id="roomType" name="roomType" type="text">
+            </div>
+            <div class="input_addroom">
+                <label for="roomSize">Room size:</label><br>
+                <input id="roomSize" name="roomSize" type="text">
+            </div>
+            <div class="input_addroom">
+                <label for="roomPrice">Room price:</label><br>
+                <input id="roomPrice" name="roomPrice" type="text">
+            </div>
+            <div id="input-facilities">
+                <label>Facilities</label><br>
+                <input type="checkbox" id="tv" name="tv" value="TV">
+                <label for="tv"> TV</label><br>
+                <input type="checkbox" id="miniBar" name="miniBar" value="Mini Bar">
+                <label for="miniBar"> Mini Bar</label><br>
+                <input type="checkbox" id="Mountain View" name="Mountain View" value="Mountain View">
+                <label for="Mountain View"> Mountain View</label><br>
+                <input type="checkbox" id="Lake View" name="Lake View" value="Lake View">
+                <label for="Mountain View"> Lake View</label><br>
+                <input id="roomFacilities" name="roomFacilities" type="hidden" />
+            </div>
+
+            <input class="btn btn-primary btn-lg" id="submit" name="submit" type="button" value="Save" /><br>
+            <label id="messageLabel"></label>
+        </form>
+    </div>
+</body>
+
+</html>

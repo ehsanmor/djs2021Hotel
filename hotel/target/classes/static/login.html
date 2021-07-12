@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#includedContent").load("header.html");
+        });
+    </script>
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="includedContent"></div>
+    <div id="login" class="container">
+        <form method="GET" action="http://localhost:8080/api/login">
+            <label for="uName">User name:</label><br>
+            <input id="uName" name="uName" type="text"><br>
+            <label for="uPass">Password:</label><br>
+            <input id="uPass" name="uPass" type="password">
+            <br>
+            <button class="btn btn-primary btn-lg" type="submit">LOG IN</button>
+        </form>
+    </div>
+</body>
+
+</html>
