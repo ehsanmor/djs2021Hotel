@@ -73,7 +73,7 @@ public class GuestRepositoryImpl implements GuestRepository{
         Guest guestToBeUpdated = getGuestById(guest.getId());
 
         if(guestToBeUpdated == null){
-            throw new Exception("Room is not exist!");
+            throw new Exception("Guest is not exist!");
         }
 
         guestToBeUpdated.setNumberOfReservation(guest.getNumberOfReservation());
