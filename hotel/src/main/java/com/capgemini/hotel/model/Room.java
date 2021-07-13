@@ -92,7 +92,7 @@ public class Room {
         this.numberOfDaysAfterBigClean = numberOfDaysAfterBigClean;
     }
 
-    public boolean isRoomNeedsCleaning() {
+    public boolean getRoomNeedsCleaning() {
         return roomNeedsCleaning;
     }
 
@@ -111,6 +111,7 @@ public class Room {
                 ", underConstruction=" + underConstruction +
                 ", lastBigCleaningDate=" + lastBigCleaningDate +
                 ", numberOfDaysAfterBigClean=" + numberOfDaysAfterBigClean +
+                ", roomNeedsCleaning=" + roomNeedsCleaning +
                 '}';
     }
 }

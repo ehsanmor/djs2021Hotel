@@ -1,6 +1,10 @@
 body {
     padding: 10px;
     font-size: 14px;
+    margin-bottom:20px;
+ }
+ .deleteRoomForm{
+    padding: 20px;
  }
  .btn {
     margin: 10px;

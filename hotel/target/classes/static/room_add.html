@@ -20,7 +20,7 @@
         <form>
             <div class="input_addroom">
                 <label for="roomId">Room Id</label><br>
-                <input id="roomId" name="roomId" type="text">
+                <input id="roomId" name="roomId" type="text" required>
             </div>
             <div class="input_editroom">
                 <label>Room type</label><br>
@@ -71,10 +71,10 @@
             <div class="row">
                 <div class='col-sm-6'>
                     <label for="roomUnderConstruction">Is room under construction?</label>
-                    <select class="form-control" id="roomUnderConstruction" name="roomUnderConstruction">
-                        <option value="0">Select....</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                    <select class="form-control" id="roomUnderConstruction" name="roomUnderConstruction" required>
+                        <option>Select....</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                 </div>
             </div>
@@ -87,8 +87,8 @@
             </div>
             <div class="row">
                 <div class='col-sm-6'>
-                    <label for="numberOfDaysAfterBigClean">Number of Days After Big Clean:</label>
-                    <input type='text' class="form-control inline" id='numberOfDaysAfterBigClean' name="numberOfDaysAfterBigClean" />
+                    <label for="roomBigCleanAfterInDays">Number of Days After Big Clean:</label>
+                    <input type='text' class="form-control inline" id='roomBigCleanAfterInDays' name="numberOfDaysAfterBigClean" />
                 </div>
             </div>
             <input class="btn btn-primary btn-lg" id="submit" name="submit" type="button" value="Save" /><br>

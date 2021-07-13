@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
     //include header
     $("#includedContent").load("header.html");
     getAllReservations();
@@ -10,41 +10,93 @@ function getAllReservations() {
         type: 'GET',
         contentType: 'application/json',
         dataType: "json"
-    }).done(function (data) {
+    }).done(function(data) {
         $('#reservationsTable').dataTable({
-            order: [[ 0, "asc" ]],
+            order: [
+                [0, "asc"]
+            ],
             data: data,
             columns: [
-//                { data: "id", title: "Id" },
-                { data: "room", title: "Room No",
-                      render: function (data){
-                              return data["id"];
-                            }
-                      },
-                { data: "guest", title: "Guest",
-                      render: function(data){
-                            return data["firstName"] + " " + data["lastName"];                        }
-                      },
-                { data: "startDate", title: "From date" },
-                { data: "endDate", title: "To Date" },
-                { data: "checkIn", title: "Check In" },
-                { data: "checkOut", title: "Check Out" },
-                { data: "paymentDate", title: "Payment Date"},
-                { data: "resChecked", title: "Checked"},
-                { data: "price", title: "Total Price"},
-                { data: "additionalPrice", title: "Additional Price"},
-                { data: "paymentType", title: "payment Type"},
-                { data: "resEnded", title: "Ended"},
-                { data: "employee", title: "Employee",
-                  render: function(data){
-                            return data["firstName"] + " " + data["lastName"];                        }
-                  },
+                //                { data: "id", title: "Id" },
+                {
+                    data: "room",
+                    title: "Room No",
+                    render: function(data) {
+                        return data["id"];
+                    }
+                },
+                {
+                    data: "guest",
+                    title: "Guest",
+                    render: function(data) {
+                        return data["firstName"] + " " + data["lastName"];
+                    }
+                },
+                {
+                    data: "startDate",
+                    title: "From date",
+                    render: function(data) {
+                        return changeDateFormat(data);
+                    }
+                },
+                {
+                    data: "endDate",
+                    title: "To Date",
+                    render: function(data) {
+                        return changeDateFormat(data);
+                    }
+                },
+                {
+                    data: "checkIn",
+                    title: "Check In",
+                    render: function(data) {
+                        return changeDateFormat(data);
+                    }
+                },
+                {
+                    data: "checkOut",
+                    title: "Check Out",
+                    render: function(data) {
+                        return changeDateFormat(data);
+                    }
+                },
+                {
+                    data: "paymentDate",
+                    title: "Payment Date",
+                    render: function(data) {
+                        return changeDateFormat(data);
+                    }
+                },
+                {
+                    data: "resChecked",
+                    title: "Room Checked before Checkout ",
+                    render: function(data) {
+                        return data ? "Yes" : "";
+                    }
+                },
+                { data: "price", title: "Total Price" },
+                { data: "additionalPrice", title: "Additional Price" },
+                { data: "paymentType", title: "payment Type" },
+                {
+                    data: "resEnded",
+                    title: "Ended",
+                    render: function(data) {
+                        return data ? "Yes" : "";
+                    }
+                },
+                {
+                    data: "employee",
+                    title: "Employee",
+                    render: function(data) {
+                        return data["firstName"] + " " + data["lastName"];
+                    }
+                },
                 {
                     title: "Edit",
                     data: "id",
                     "searchable": false,
                     "sortable": false,
-                    "render": function (data) {
+                    "render": function(data) {
                         var resIdEdit = "editReservation.html?id=" + data;
                         return '<a href="' + resIdEdit + '" class="editRes"><i class="fa fa-pencil fa-fw"></a>';
                     }
@@ -54,7 +106,7 @@ function getAllReservations() {
                     data: "id",
                     "searchable": false,
                     "sortable": false,
-                    "render": function (data) {
+                    "render": function(data) {
                         var resIdEdit = "deleteReservation.html?id=" + data;
                         return '<a href="' + resIdEdit + '" class="deleteRes"><i class="fa fa-trash fa-fw"></a>';
                     }

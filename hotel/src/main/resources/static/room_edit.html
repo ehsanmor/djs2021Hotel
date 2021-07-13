@@ -75,9 +75,9 @@
         <div class='col-sm-6'>
           <label for="roomUnderConstruction">Is room under construction?</label>
           <select class="form-control" id="roomUnderConstruction" name="roomUnderConstruction">
-            <option value="0">Select....</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option>Select....</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
           </select>
         </div>
       </div>
@@ -88,7 +88,14 @@
           <input type='date' class="form-control inline" id='roomLastBigClean' name="roomLastBigClean" />
         </div>
       </div>
-      <input class="btn btn-primary btn-lg" id="updateRoom" name="submit" type="button" value="Update" /><br>
+      <div class="row">
+        <div class='col-sm-6'>
+          <label for="roomBigCleanAfterInDays">Number of Days After Big Clean:</label>
+          <input type='text' class="form-control inline" id='roomBigCleanAfterInDays' name="numberOfDaysAfterBigClean" />
+        </div>
+      </div>
+      <input class="btn btn-primary btn-lg" id="updateRoom" name="submit" type="button" value="Update" />
+      <label id="messageLabel"></label>
     </form>
   </div>
 </body>

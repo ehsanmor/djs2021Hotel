@@ -40,7 +40,7 @@ public class RoomController {
         return new ResponseEntity<Room>(room, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/room/{id}", produces = "application/json")
+    @DeleteMapping(value = "/room/delete/{id}", produces = "application/json")
     public ResponseEntity<Room> deleteRoomById(@PathVariable(name = "id", required = true) int id){
 
         Room deletedRoom = roomService.deleteRoomById(id);
@@ -48,7 +48,7 @@ public class RoomController {
         return new ResponseEntity<Room>(deletedRoom, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/room", produces = "application/json", consumes = "application/json")
+    @PostMapping(value = "/room/add", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Room> createRoom(@RequestBody Room room) {
 
         Room createdRoom = roomService.createRoom(room);
@@ -57,7 +57,7 @@ public class RoomController {
 
     }
 
-    @PutMapping(value = "/room/edit/{id}", produces = "application/json", consumes = "application/json")
+    @PutMapping(value = "/room/edit", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Room> updateRoom(@RequestBody Room room) {
 
         Room updatedRoom = roomService.updateRoom(room);
