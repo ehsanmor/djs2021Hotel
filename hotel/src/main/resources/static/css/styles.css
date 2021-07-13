@@ -67,11 +67,6 @@ body {
     padding: 14px 16px;
   }
 
-.subnav-content {
-    width: 100%;
-    display: block;
-}
-
     .navbar .responsive a:hover, .subnav:hover .subnavbtn,
     .navbar .responsive a:hover, .subnav:hover .subnavbtn:hover,
     .navbar.responsive .subnav .subnavbtn .subnav-content a{
@@ -79,6 +74,12 @@ body {
       background-color: #555;
       color: white;
       width: 100%;
+    }
+
+    .subnav:hover .subnav-content {
+      display: block;
+      width: 80%;
+      border-radius: 0px 0px 15px 15px;
     }
 }
 /**
@@ -178,4 +179,5 @@ body {
 /* When you move the mouse over the subnav container, open the subnav content */
 .subnav:hover .subnav-content {
   display: block;
+  border-radius: 0px 0px 15px 15px;
 }
