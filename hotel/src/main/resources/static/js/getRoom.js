@@ -2,6 +2,70 @@ $(document).ready(function () {
     var url = new URL(window.location.href);
     var id = url.searchParams.get("id");
     if (id !== null) getRoomById(id);
+
+    // click on button submit
+    $("#updateRoom").on('click', function () {
+        getFacilities();
+        console.log("UPDATE");
+        $.ajax({
+            url: 'http://localhost:8080/hotel/room/edit/' + id,
+            type: 'PUT',
+            contentType: 'application/json',
+            dataType: "json",
+            data: JSON.stringify({
+
+                "type":$('input[name="type"]:checked').val(),
+                "capacity":$('#roomSize').val(),
+                "price":$('#roomPrice').val(),
+                "facilities":$('#roomFacilities').val(),
+    //            "underConstruction":$('#roomUnderConstruction').val(),
+                "lastBigCleaningDate": toString($('#roomLastBigClean').val()),
+                "numberOfDaysAfterBigClean":$('#numberOfDaysAfterBigClean').val()
+            }),
+            success: function (result) {
+            console.log(result);
+                $("#messageLabel").html("The room was successfully updated.");
+                setTimeout("$('#messageLabel').html('');", 3000);
+                setTimeout("location.href = 'http://localhost:8080/rooms.html';", 5000);
+            },
+            error: function (e) {
+                console.log(e);
+            },
+        });
+    });
+
+    // click on button submit
+        $("#submit").on('click', function () {
+            getFacilities();
+
+            $.ajax({
+                url: 'http://localhost:8080/hotel/room',
+                type: 'PUT',
+                contentType: 'application/json',
+                dataType: "json",
+                data: JSON.stringify({
+                    "id":$('#roomId').val(),
+                    "type":$('input[name="type"]:checked').val(),
+                    "capacity":$('#roomSize').val(),
+                    "price":$('#roomPrice').val(),
+                    "facilities":$('#roomFacilities').val(),
+        //            "underConstruction":$('#roomUnderConstruction').val(),
+                    "lastBigCleaningDate": toString($('#roomLastBigClean').val()),
+                    "numberOfDaysAfterBigClean":$('#numberOfDaysAfterBigClean').val()
+                }),
+                success: function (result) {
+                console.log(result);
+                    $("#messageLabel").html("The room was successfully added.");
+                    setTimeout("$('#messageLabel').html('');", 3000);
+                    setTimeout("location.href = 'http://localhost:8080/rooms.html';", 5000);
+                },
+                error: function (e) {
+                    console.log(e);
+                },
+            });
+        });
+
+
 });
 
 function getRoomById(id) {
@@ -25,30 +89,3 @@ function getRoomById(id) {
         showFacilities(data.facilities.toString());
     });
 }
-
-// click on button submit
-$("#submit").on('click', function () {
-    getFacilities();
-    $.ajax({
-        url: 'http://localhost:8080/hotel/room/add',
-        type: 'PUT',
-        contentType: 'application/json',
-        dataType: "json",
-        data: JSON.stringify({
-
-            "roomId": document.getElementById('roomId').value,
-            "roomType": document.getElementById('roomType').value,
-            "roomSize": document.getElementById('roomSize').value,
-            "roomPrice": document.getElementById('roomPrice').value,
-            "roomFacilities": document.getElementById('roomFacilities').value
-        }),
-        success: function (result) {
-            $("#messageLabel").html("Your data was successfully saved.");
-            setTimeout("$('#messageLabel').html('');", 2000);
-            setTimeout("location.href = 'http://localhost:8080/rooms.html';", 2000);
-        },
-        error: function (e) {
-            console.log(e);
-        },
-    });
-});

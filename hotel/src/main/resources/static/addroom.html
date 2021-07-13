@@ -22,12 +22,31 @@
                 <label for="roomId">Room Id</label><br>
                 <input id="roomId" name="roomId" type="text">
             </div>
-            <div class="input_addroom">
-                <label for="roomType">Room type</label><br>
-                <input id="roomType" name="roomType" type="text">
+            <div class="input_editroom">
+                <label>Room type</label><br>
+                <!--        <input id="roomType" name="roomType" type="text">-->
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="roomType" id="roomTypeEconomy" value="economy">
+                    <label class="form-check-label" for="roomTypeEconomy">
+                        Economy
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="roomType" id="roomTypeNormal" value="normal">
+                    <label class="form-check-label" for="roomTypeNormal">
+                        Normal
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="roomType" id="roomTypeLuxurious" value="luxurious">
+                    <label class="form-check-label" for="roomTypeLuxurious">
+                        Luxurious
+                    </label>
+                </div>
             </div>
             <div class="input_addroom">
-                <label for="roomSize">Room size:</label><br>
+                <label for="roomSize">Room Max Capacity:</label><br>
                 <input id="roomSize" name="roomSize" type="text">
             </div>
             <div class="input_addroom">
@@ -44,9 +63,34 @@
                 <label for="Mountain View"> Mountain View</label><br>
                 <input type="checkbox" id="Lake View" name="Lake View" value="Lake View">
                 <label for="Mountain View"> Lake View</label><br>
+                <input type="checkbox" id="sauna" name="sauna" value="Sauna">
+                <label for="sauna"> Sauna</label><br>
                 <input id="roomFacilities" name="roomFacilities" type="hidden" />
             </div>
 
+            <div class="row">
+                <div class='col-sm-6'>
+                    <label for="roomUnderConstruction">Is room under construction?</label>
+                    <select class="form-control" id="roomUnderConstruction" name="roomUnderConstruction">
+                        <option value="0">Select....</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class='col-sm-6'>
+                    <label for="roomLastBigClean">Last Big Clean date on:</label>
+                    <i class="fa fa-calendar inline"></i>
+                    <input type='date' class="form-control inline" id='roomLastBigClean' name="roomLastBigClean" />
+                </div>
+            </div>
+            <div class="row">
+                <div class='col-sm-6'>
+                    <label for="numberOfDaysAfterBigClean">Number of Days After Big Clean:</label>
+                    <input type='text' class="form-control inline" id='numberOfDaysAfterBigClean' name="numberOfDaysAfterBigClean" />
+                </div>
+            </div>
             <input class="btn btn-primary btn-lg" id="submit" name="submit" type="button" value="Save" /><br>
             <label id="messageLabel"></label>
         </form>

@@ -25,7 +25,6 @@ function getGuestById(id) {
 // click on button submit
 $("#updateGuest").on('click', function () {
 
-//    var strGuestType = $('input[name="type"]:checked').val();
     $.ajax({
         url: 'http://localhost:8080/hotel/guest/edit/' + id,
         type: 'PUT',
@@ -42,10 +41,9 @@ $("#updateGuest").on('click', function () {
             "numberOfReservation": $('#numberOfReservation').val()
         }),
         success: function(result) {
-            console.log(result);
             $("#messageLabel").html("Your changes were successfully saved.");
-            setTimeout("$('#messageLabel').html('');", 5000);
-//            setTimeout("location.href = 'http://localhost:8080/guests.html';", 3000);
+            setTimeout("$('#messageLabel').html('');", 3000);
+            setTimeout("location.href = 'http://localhost:8080/guests.html';", 5000);
         },
         error: function (e) {
             console.log(e);

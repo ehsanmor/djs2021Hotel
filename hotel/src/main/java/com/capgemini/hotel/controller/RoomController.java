@@ -57,7 +57,7 @@ public class RoomController {
 
     }
 
-    @PutMapping(value = "/room", produces = "application/json", consumes = "application/json")
+    @PutMapping(value = "/room/edit/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Room> updateRoom(@RequestBody Room room) {
 
         Room updatedRoom = roomService.updateRoom(room);

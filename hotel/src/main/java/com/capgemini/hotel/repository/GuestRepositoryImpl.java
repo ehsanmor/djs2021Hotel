@@ -69,9 +69,8 @@ public class GuestRepositoryImpl implements GuestRepository{
 
     @Override
     public Guest updateGuest(Guest guest) throws Exception {
-        GuestRepository guestRepository = new GuestRepositoryImpl();
 
-        Guest guestToBeUpdated = guestRepository.getGuestById(guest.getId());
+        Guest guestToBeUpdated = getGuestById(guest.getId());
 
         if(guestToBeUpdated == null){
             throw new Exception("Guest does not exist!");
@@ -85,6 +84,7 @@ public class GuestRepositoryImpl implements GuestRepository{
         guestToBeUpdated.setPassword(guest.getPassword());
         guestToBeUpdated.setTelephoneNumber(guest.getTelephoneNumber());
 
+        Guest guest22 = getGuestById(guest.getId());
         return guestToBeUpdated;
     }
 }
