@@ -12,11 +12,11 @@ public class Room {
     private boolean underConstruction;
     private LocalDate lastBigCleaningDate;
     private int numberOfDaysAfterBigClean;
-//    private boolean roomNeedsCleaning;
+    private boolean roomNeedsCleaning;
 
     public Room(){}
 
-    public Room(int id, String type, String[] facilities, double price, LocalDate lastBigCleaningDate, int numberOfDaysAfterBigClean, int capacity, boolean underConstruction) {
+    public Room(int id, String type, String[] facilities, double price, LocalDate lastBigCleaningDate, int numberOfDaysAfterBigClean, int capacity, boolean underConstruction, boolean roomNeedsCleaning) {
         this.id = id;
         this.type = type;
         this.facilities = facilities;
@@ -25,6 +25,7 @@ public class Room {
         this.underConstruction = underConstruction;
         this.lastBigCleaningDate = lastBigCleaningDate;
         this.numberOfDaysAfterBigClean = numberOfDaysAfterBigClean;
+        this.roomNeedsCleaning = roomNeedsCleaning;
     }
 
     public int getId() {
@@ -89,6 +90,14 @@ public class Room {
 
     public void setNumberOfDaysAfterBigClean(int numberOfDaysAfterBigClean) {
         this.numberOfDaysAfterBigClean = numberOfDaysAfterBigClean;
+    }
+
+    public boolean isRoomNeedsCleaning() {
+        return roomNeedsCleaning;
+    }
+
+    public void setRoomNeedsCleaning(boolean roomNeedsCleaning) {
+        this.roomNeedsCleaning = roomNeedsCleaning;
     }
 
     @Override

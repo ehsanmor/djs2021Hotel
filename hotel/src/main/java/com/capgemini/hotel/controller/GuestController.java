@@ -52,8 +52,8 @@ public class GuestController {
         return new ResponseEntity<Guest>(createdGuest, HttpStatus.OK);
     }
 
-    @PutMapping(value = "/guest", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Guest> updateGuest(@RequestBody Guest guest) {
+    @PutMapping(value = "/guest/edit/{id}", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<Guest> updateGuest(@RequestBody Guest guest){
 
         Guest updatedGuest = guestService.updateGuest(guest);
 

@@ -31,7 +31,7 @@ public class GuestRepositoryImpl implements GuestRepository{
 
         for (Guest guestToFind : guests) {
             if (guestToFind.getId() == guest.getId()) {
-                throw new Exception("Guest is exist!");
+                throw new Exception("Guest already exists!");
             }
         }
 
@@ -69,11 +69,12 @@ public class GuestRepositoryImpl implements GuestRepository{
 
     @Override
     public Guest updateGuest(Guest guest) throws Exception {
+        GuestRepository guestRepository = new GuestRepositoryImpl();
 
-        Guest guestToBeUpdated = getGuestById(guest.getId());
+        Guest guestToBeUpdated = guestRepository.getGuestById(guest.getId());
 
         if(guestToBeUpdated == null){
-            throw new Exception("Room is not exist!");
+            throw new Exception("Guest does not exist!");
         }
 
         guestToBeUpdated.setNumberOfReservation(guest.getNumberOfReservation());

@@ -2,7 +2,6 @@ $(document).ready(function () {
     var url = new URL(window.location.href);
     var id = url.searchParams.get("id");
     if (id !== null) getGuestById(id);
-});
 
 function getGuestById(id) {
     $.ajax({
@@ -22,3 +21,36 @@ function getGuestById(id) {
 
     });
 }
+
+// click on button submit
+$("#updateGuest").on('click', function () {
+
+//    var strGuestType = $('input[name="type"]:checked').val();
+    $.ajax({
+        url: 'http://localhost:8080/hotel/guest/edit/' + id,
+        type: 'PUT',
+        contentType: 'application/json',
+        dataType: "json",
+        data: JSON.stringify({
+            "id": id,
+            "firstName": $('#firstName').val(),
+            "lastName": $('#lastName').val(),
+            "email": $('#email').val(),
+            "password": $('#password').val(),
+            "telephoneNumber": $('#telephoneNumber').val(),
+            "type": $('input[name="type"]:checked').val(),
+            "numberOfReservation": $('#numberOfReservation').val()
+        }),
+        success: function(result) {
+            console.log(result);
+            $("#messageLabel").html("Your changes were successfully saved.");
+            setTimeout("$('#messageLabel').html('');", 5000);
+//            setTimeout("location.href = 'http://localhost:8080/guests.html';", 3000);
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    });
+});
+
+});

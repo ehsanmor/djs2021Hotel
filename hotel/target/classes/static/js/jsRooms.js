@@ -5,13 +5,14 @@ $(function () {
 
 function roomNeedsCleaningCheck(lastCleanD, noDays){
     var from = lastCleanD.split("-");
-    var lastCleanDate = new Date(from[2], from[1] - 1, from[0]);
+    var lastCleanDate = new Date(from[0], from[1] - 1, from[2]);
     var diff = new Date(Date()) - lastCleanDate;
     var differenceDays = diff/1000/60/60/24;
-    if (differenceDays >= noDays) {
-        return true;
-    }
-    return false;
+        if (differenceDays >= noDays) {
+            return '<i class="fa fa-flag red-color"></i>';
+        }else{
+            return '';
+        }
 }
 
 function StringToDate(dateStr) {
@@ -58,6 +59,7 @@ function addRoomsFromTestData(){
 
 $(function getAllRooms() {
 //    addRoomsFromTestData();
+
     $.ajax({
         url: 'http://localhost:8080/hotel/rooms',
         type: 'GET',
@@ -68,16 +70,18 @@ $(function getAllRooms() {
             order: [[ 1, "asc" ]],
             data: data,
             columns: [
-//                {
-//                    data: "roomNeedsCleaning", title: "Needs Cleaning",
-//                    render: function (data) {
-//                        if (data) {
-//                            return '<i class="fa fa-flag red-color"></i>';
-//                        } else {
-//                            return null;
-//                        }
-//                    }
-//                },
+                {
+                    data: "roomNeedsCleaning", title: "Needs Cleaning",
+                    render: function (data, type, row) {
+                        var chkData = roomNeedsCleaningCheck(row["lastBigCleaningDate"], row["numberOfDaysAfterBigClean"]);
+
+                        if (chkData) {
+                            return '<i class="fa fa-flag red-color"></i>';
+                        } else {
+                            return null;
+                        }
+                    }
+                },
                 { data: "id", title: "Room Id" },
                 { data: "type", title: "Room Type" },
                 { data: "capacity", title: "Max Capacity" },
