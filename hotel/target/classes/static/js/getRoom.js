@@ -89,29 +89,7 @@ $(document).ready(function() {
             $('#roomBigCleanAfterInDays').val(data.numberOfDaysAfterBigClean);
             var selId = document.getElementById("roomUnderConstruction");
             selId.value = data.underConstruction ? "true" : "false";
-            //            $('#roomUnderConstruction').value = data.roomUnderConstruction?1:2;
-
             showFacilities(data.facilities.toString());
         });
     }
-
-//    $("#deleteRoomConfirm").on('click', function() {
-//        if (window.confirm("Do you really want to delete this room?")) {
-//            $.ajax({
-//                url: 'http://localhost:8080/hotel/room/delete/' + id,
-//                type: 'DELETE',
-//                success: function() {
-//                    console.log("done");
-//                    $("#messageLabel").html("The selected room is deleted.");
-//                    setTimeout("$('#messageLabel').html('');", 3000);
-//                    setTimeout("location.href = 'http://localhost:8080/rooms.html';", 5000);
-//                },
-//                error: function(e) {
-//                    console.log(e);
-//                },
-//            });
-//        } else {
-//            setTimeout("location.href = 'http://localhost:8080/rooms.html';", 5000);
-//        }
-//    });
 });

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
@@ -8,22 +10,117 @@
 
     <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/rooms.js"></script>
-<!--    <script type="text/javascript" src="js/testData.js"></script>-->
+    <!--    <script type="text/javascript" src="js/testData.js"></script>-->
     <title>Rooms</title>
 </head>
 
 <body>
-<div id="includedContent"></div>
-<div class="container">
-    <fieldset>
-        <h3>List of Rooms</h3>
-        <div class="table-responsive">
-            <table id="roomTable" class="table table-striped table-bordered" style="width:100%">
+    <div id="includedContent"></div>
+    <div class="container">
+        <fieldset>
+            <h3>List of Rooms</h3>
+            <div class="table-responsive">
+                <table id="roomTable" class="table table-striped table-bordered" style="width:100%">
 
-            </table>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+    <!-- Editing form modal -->
+    <div id="edit_room_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Room</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="update_form">
+                        <div class="form-group">
+                            <label for="id">Room Id</label><br>
+                            <input id="id" name="id" type="text" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Room type</label><br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="roomType" id="roomTypeEconomy" value="economy">
+                                <label class="form-check-label" for="roomTypeEconomy">
+                                    Economy
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="roomType" id="roomTypeNormal" value="normal">
+                                <label class="form-check-label" for="roomTypeNormal">
+                                    Normal
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="roomType" id="roomTypeLuxurious" value="luxurious">
+                                <label class="form-check-label" for="roomTypeLuxurious">
+                                    Luxurious
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomSize">Room max Capacity:</label><br>
+                            <input id="roomSize" name="roomSize" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="roomPrice">Room price:</label><br>
+                            <input id="roomPrice" name="roomPrice" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Facilities</label><br>
+                            <input type="checkbox" id="tv" name="tv" value="TV">
+                            <label for="tv"> TV</label><br>
+                            <input type="checkbox" id="miniBar" name="miniBar" value="Mini Bar">
+                            <label for="miniBar"> Mini Bar</label><br>
+                            <input type="checkbox" id="mountainView" name="mountainview" value="Mountain View">
+                            <label for="mountainView"> Mountain View</label><br>
+                            <input type="checkbox" id="lakeView" name="lakeview" value="Lake View">
+                            <label for="lakeView"> Lake View</label><br>
+                            <input type="checkbox" id="sauna" name="sauna" value="Sauna">
+                            <label for="sauna"> Sauna</label><br>
+
+                            <input id="roomFacilities" name="roomFacilities" type="hidden" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="roomUnderConstruction">Is room under construction?</label>
+                            <select class="form-control" id="roomUnderConstruction" name="roomUnderConstruction">
+                                <option>Select....</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomLastBigClean">Last Big Clean date on:</label>
+                            <i class="fa fa-calendar inline"></i>
+                            <input type='date' class="form-control inline" id='roomLastBigClean' name="roomLastBigClean" />
+                        </div>
+                        <div class="form-group">
+                            <label for="roomBigCleanAfterInDays">Number of Days After Big Clean:</label>
+                            <input type='text' class="form-control inline" id='roomBigCleanAfterInDays' name="numberOfDaysAfterBigClean" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <label id="messageLabel"></label>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input type="submit" name="update" id="updateRoom" value="Save" class="btn btn-success" />
+                        </div>
+                    </form>
+                </div>
+                <!-- .modal-body -->
+            </div>
+            <!-- .modal-content -->
         </div>
-    </fieldset>
-</div>
+        <!-- .modal-dialog -->
+    </div>
+    <!-- .modal -->
 </body>
 
 </html>

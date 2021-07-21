@@ -109,10 +109,11 @@ $(function getAllRooms() {
                     data: "id",
                     searchable: false,
                     sortable: false,
-                    render: function(data) {
+                    render: function(data, type, row) {
                         //                        console.log(data);
                         var roomIdEdit = "room_edit.html?id=" + data;
                         return '<a href="' + roomIdEdit + '" class="editRoom"><i class="fa fa-pencil fa-fw"></a>';
+//                        return '<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '">Edit</button>';
                     }
                 },
                 {
@@ -131,6 +132,12 @@ $(function getAllRooms() {
     });
 });
 
+$('#roomTable').on('click', 'button', event => {
+  let rowData = dataTable.row($(event.target).closest('tr')).data();
+  console.log("test", "${rowData.id}", "${rowData.type}");
+//  alert(`Are you sure you wanna send wi-fi code "${rowData.code}" to that sneaky bastard ${rowData.name} on his e-mail (${rowData.email})?`);
+});
+
 //    $('#roomTable tbody').on('click', 'tr td #del', function() {
 function DeleteRow(id) {
     //        var row = $(this).parents('tr')[0];
@@ -144,7 +151,7 @@ function DeleteRow(id) {
             type: 'DELETE',
             success: function() {
                 window.alert("Room is deleted.");
-                setTimeout("location.href = 'http://localhost:8080/rooms.html';", 3000);
+                setTimeout("location.href = 'http://localhost:8080/rooms.html';", 1000);
             },
             error: function(e) {
                 console.log(e);
@@ -153,6 +160,6 @@ function DeleteRow(id) {
     } else {
         window.alert("Delete action cancelled.");
         // Nothing to do here
-        setTimeout("location.href = 'http://localhost:8080/rooms.html';", 3000);
+        setTimeout("location.href = 'http://localhost:8080/rooms.html';", 1000);
     }
 };

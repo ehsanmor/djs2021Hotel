@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -7,61 +8,62 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "navbar") {
-            x.className += " responsive";
-          } else {
-            x.className = "navbar";
-          }
+            var x = document.getElementById("myTopnav");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
         }
     </script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-<div class="container head-banner">
-    <div class="welcome">
-        <div class="row">
-            <img class="col" id="resortLogo" src="images/molvenoLogo.jpg" alt="logo"/>
-            <img class="col" id="resort" src="images/resort.jpg" alt="photo"/>
-        </div>
 
-        <div class="navbar" id="myTopnav">
-            <a href="index.html">Home</a>
-            <div class="subnav">
-                <button class="subnavbtn">Rooms <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    <a href="rooms.html">Overview</a>
-                    <a href="room_add.html">Add New</a>
-                </div>
+<body>
+    <div class="container head-banner">
+        <div class="welcome">
+            <div class="row">
+                <img class="col" id="resortLogo" src="images/molvenoLogo.jpg" alt="logo" />
+                <img class="col" id="resort" src="images/resort.jpg" alt="photo" />
             </div>
-            <div class="subnav">
-                <button class="subnavbtn">Reservations <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    <a href="reservations.html">View</a>
-                    <a href="reservation_add.html">Add New</a>
-                    <a href="reservation_edit.html">Edit</a>
-                    <a href="reservation_delete.html">Delete</a>
+
+            <div class="navbar" id="myTopnav">
+                <a href="index.html">Home</a>
+                <div class="subnav">
+                    <button class="subnavbtn">Rooms <i class="fa fa-caret-down"></i></button>
+                    <div class="subnav-content">
+                        <a href="rooms.html">Overview</a>
+                        <a href="room_add.html">Add New</a>
+                    </div>
                 </div>
-            </div>
-            <div class="subnav">
-                <button class="subnavbtn">Guests <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    <a href="guests.html">View</a>
-                    <a href="guest_add.html">Add</a>
+                <div class="subnav">
+                    <button class="subnavbtn">Reservations <i class="fa fa-caret-down"></i></button>
+                    <div class="subnav-content">
+                        <a href="reservations.html">View</a>
+                        <a href="reservation_add.html">Add New</a>
+                        <a href="reservation_edit.html">Edit</a>
+                        <a href="reservation_delete.html">Delete</a>
+                    </div>
                 </div>
-            </div>
-            <div class="subnav">
-                <button class="subnavbtn">Employees <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    <a href="employees.html">View</a>
-                    <a href="addemployee.html">Add</a>
+                <div class="subnav">
+                    <button class="subnavbtn">Guests <i class="fa fa-caret-down"></i></button>
+                    <div class="subnav-content">
+                        <a href="guests.html">View</a>
+                        <a href="guest_add.html">Add</a>
+                    </div>
                 </div>
+                <div class="subnav">
+                    <button class="subnavbtn">Employees <i class="fa fa-caret-down"></i></button>
+                    <div class="subnav-content">
+                        <a href="employees.html">View</a>
+                        <a href="employee_add.html">Add</a>
+                    </div>
+                </div>
+                <a href="login.html">Login</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
-            <a href="login.html">Login</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
         </div>
     </div>
-</div>
 </body>
