@@ -3,6 +3,16 @@ $(document).ready(function() {
     var id = url.searchParams.get("id");
     if (id !== null) getRoomById(id);
 
+    $('#roomTable').on('click', 'tbody tr td button', function(e) {
+        var table = $('#roomTable').dataTable();
+        e.preventDefault();
+        console.log("Test", $(this).data("id"));
+        getRoomById($(this).data("id"));
+        //        let rowData = table.row($(event.target).closest('tr')).data();
+        //        console.log("test", "${rowData.id}", "${rowData.type}");
+        //  alert(`Are you sure you wanna send wi-fi code "${rowData.code}" to that sneaky bastard ${rowData.name} on his e-mail (${rowData.email})?`);
+    });
+
     // click on button update
     $("#updateRoom").on('click', function() {
         var arrFacilities = getFacilities();

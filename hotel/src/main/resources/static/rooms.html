@@ -10,6 +10,7 @@
 
     <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/rooms.js"></script>
+    <script type="text/javascript" src="js/getRoom.js"></script>
     <!--    <script type="text/javascript" src="js/testData.js"></script>-->
     <title>Rooms</title>
 </head>
@@ -39,8 +40,8 @@
 
                     <form id="update_form">
                         <div class="form-group">
-                            <label for="id">Room Id</label><br>
-                            <input id="id" name="id" type="text" disabled>
+                            <label for="roomId">Room Id</label><br>
+                            <input id="roomId" name="roomId" type="text" disabled>
                         </div>
 
                         <div class="form-group">
@@ -73,7 +74,7 @@
                             <input id="roomPrice" name="roomPrice" type="text">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="input-facilities">
                             <label>Facilities</label><br>
                             <input type="checkbox" id="tv" name="tv" value="TV">
                             <label for="tv"> TV</label><br>
