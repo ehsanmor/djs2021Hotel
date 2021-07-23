@@ -3,28 +3,6 @@ $(function() {
     $("#includedContent").load("header.html");
 });
 
-function getRoomById(id) {
-
-    $.ajax({
-        url: 'http://localhost:8080/hotel/room/' + id,
-        type: 'GET',
-        contentType: 'application/json',
-        dataType: "json",
-    }).done(function(data) {
-        //            console.log(data.roomType);
-        $('#roomId').val(data.id);
-        var selectedRoomType = data.type.toLowerCase();
-        $('input:radio[name="roomType"]').filter('[value="' + selectedRoomType + '"]').attr('checked', true);
-        $('#roomSize').val(data.capacity);
-        $('#roomPrice').val(data.price);
-        $('#roomLastBigClean').val(data.lastBigCleaningDate);
-        $('#roomBigCleanAfterInDays').val(data.numberOfDaysAfterBigClean);
-        var selId = document.getElementById("roomUnderConstruction");
-        selId.value = data.underConstruction ? "true" : "false";
-        showFacilities(data.facilities.toString());
-    });
-}
-
 function roomNeedsCleaningCheck(lastCleanD, noDays) {
     var from = lastCleanD.split("-");
     var lastCleanDate = new Date(from[0], from[1] - 1, from[2]);
@@ -128,26 +106,11 @@ $(function getAllRooms() {
                 },
                 {
                     title: "Edit",
-                    data: "id",
+                    data: "null",
                     searchable: false,
                     sortable: false,
                     render: function(data, type, row) {
-                        //                        console.log(data);
-                        var roomIdEdit = "room_edit.html?id=" + data;
-                        return '<a href="' + roomIdEdit + '" class="editRoom"><i class="fa fa-pencil fa-fw"></a>';
-                        //                        return '<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '">Edit</button>';
-                    }
-                },
-                {
-                    title: "",
-                    data: "id",
-                    searchable: false,
-                    sortable: false,
-                    render: function(data, type, row) {
-                        //                        console.log(data);
-                        //                                        var roomIdEdit = "room_edit.html?id=" + data;
-                        //                                        return '<a href="' + roomIdEdit + '" class="editRoom"><i class="fa fa-pencil fa-fw"></a>';
-                        return '<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '">Edit</button>';
+                        return '<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '"><i class="fa fa-pencil fa-fw"></button>';
                     }
                 },
                 {

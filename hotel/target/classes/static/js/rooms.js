@@ -106,14 +106,11 @@ $(function getAllRooms() {
                 },
                 {
                     title: "Edit",
-                    data: "id",
+                    data: "null",
                     searchable: false,
                     sortable: false,
                     render: function(data, type, row) {
-                        //                        console.log(data);
-                        var roomIdEdit = "room_edit.html?id=" + data;
-                        return '<a href="' + roomIdEdit + '" class="editRoom"><i class="fa fa-pencil fa-fw"></a>';
-//                        return '<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '">Edit</button>';
+                        return '<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '"><i class="fa fa-pencil fa-fw"></button>';
                     }
                 },
                 {
@@ -130,12 +127,6 @@ $(function getAllRooms() {
             ]
         });
     });
-});
-
-$('#roomTable').on('click', 'button', event => {
-  let rowData = dataTable.row($(event.target).closest('tr')).data();
-  console.log("test", "${rowData.id}", "${rowData.type}");
-//  alert(`Are you sure you wanna send wi-fi code "${rowData.code}" to that sneaky bastard ${rowData.name} on his e-mail (${rowData.email})?`);
 });
 
 //    $('#roomTable tbody').on('click', 'tr td #del', function() {
