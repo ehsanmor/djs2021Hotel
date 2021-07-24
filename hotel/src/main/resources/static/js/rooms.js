@@ -1,6 +1,18 @@
 $(function() {
     //include header
     $("#includedContent").load("header.html");
+    getAllRooms();
+
+    $("#addNewRoom").click(function() {
+        document.getElementById("updateRoom").hidden = true;
+        document.getElementById("saveNewRoom").hidden = false;
+    });
+
+     document.querySelector(".editExistingRoom").click(function() {
+        document.getElementById("updateRoom").hidden = false;
+        document.getElementById("saveNewRoom").hidden = true;
+    });
+
 });
 
 function roomNeedsCleaningCheck(lastCleanD, noDays) {
@@ -56,10 +68,7 @@ function addRoomsFromTestData() {
     });
 }
 
-
-$(function getAllRooms() {
-    //    addRoomsFromTestData();
-
+function getAllRooms() {
     $.ajax({
         url: 'http://localhost:8080/hotel/rooms',
         type: 'GET',
@@ -110,7 +119,7 @@ $(function getAllRooms() {
                     searchable: false,
                     sortable: false,
                     render: function(data, type, row) {
-                        return '<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '"><i class="fa fa-pencil fa-fw"></button>';
+                        return '<button class="editExistingRoom btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '"><i class="fa fa-pencil fa-fw"></button>';
                     }
                 },
                 {
@@ -121,22 +130,17 @@ $(function getAllRooms() {
                     className: "dt-center",
                     render: function(data) {
                         var roomIdDelete = 'return DeleteRow(' + data + ');';
-                        return '<a href="#" class="deleteRoom" onclick="' + roomIdDelete + '"><i class="fa fa-trash fa-fw"></a>';
+                        return '<a href="#" class="btn btn-sm btn-info deleteRoom" onclick="' + roomIdDelete + '"><i class="fa fa-trash fa-fw"></a>';
                     }
                 }
             ]
         });
     });
-});
+}
 
-//    $('#roomTable tbody').on('click', 'tr td #del', function() {
 function DeleteRow(id) {
-    //        var row = $(this).parents('tr')[0];
-    //        var mydata = (roomTable.row(row).data());
-    //    console.log(id);
     var con = window.confirm("Are you sure you want to delete this room no -  " + id);
     if (con) {
-        // Do Something
         $.ajax({
             url: 'http://localhost:8080/hotel/room/delete/' + id,
             type: 'DELETE',
@@ -150,7 +154,6 @@ function DeleteRow(id) {
         });
     } else {
         window.alert("Delete action cancelled.");
-        // Nothing to do here
         setTimeout("location.href = 'http://localhost:8080/rooms.html';", 1000);
     }
 };

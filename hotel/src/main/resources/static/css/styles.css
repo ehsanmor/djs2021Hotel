@@ -24,7 +24,10 @@ body {
 .inline{
       display:inline-block;
  }
-
+#addNewRoom{
+    display:inline-block;
+    float: right;
+}
 .head-banner {
     align: center;
 }
