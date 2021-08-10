@@ -37,36 +37,36 @@ function checkConstruction(statRoom) {
     return result;
 }
 
-function addRoomsFromTestData() {
-    //this will post the test date to java first
-    $.each(testData, function(index, value) {
-        postData = JSON.stringify({
-            "roomId": value["roomId"],
-            "roomType": value["roomType"],
-            "roomSize": value["roomSize"],
-            "roomPrice": value["roomPrice"],
-            "roomFacilities": value['roomFacilities'],
-            "roomLastBigClean": StringToDate(value['roomLastBigClean']),
-            "roomBigCleanAfterInDays": parseInt(value['roomBigCleanAfterInDays']),
-            "roomUnderConstruction": checkConstruction(value['roomUnderConstruction']),
-            "roomNeedsCleaning": roomNeedsCleaningCheck(value["roomLastBigClean"], value["roomBigCleanAfterInDays"])
-        });
-
-        $.ajax({
-            url: 'http://localhost:8080/hotel/room/add',
-            type: 'PUT',
-            contentType: 'application/json',
-            dataType: "json",
-            data: postData,
-            success: function(result) {
-                //                  console.log("done");
-            },
-            error: function(e) {
-                console.log(e);
-            },
-        });
-    });
-}
+//function addRoomsFromTestData() {
+//    //this will post the test date to java first
+//    $.each(testData, function(index, value) {
+//        postData = JSON.stringify({
+//            "roomId": value["roomId"],
+//            "roomType": value["roomType"],
+//            "roomSize": value["roomSize"],
+//            "roomPrice": value["roomPrice"],
+//            "roomFacilities": value['roomFacilities'],
+//            "roomLastBigClean": StringToDate(value['roomLastBigClean']),
+//            "roomBigCleanAfterInDays": parseInt(value['roomBigCleanAfterInDays']),
+//            "roomUnderConstruction": checkConstruction(value['roomUnderConstruction']),
+//            "roomNeedsCleaning": roomNeedsCleaningCheck(value["roomLastBigClean"], value["roomBigCleanAfterInDays"])
+//        });
+//
+//        $.ajax({
+//            url: 'http://localhost:8080/hotel/room/add',
+//            type: 'PUT',
+//            contentType: 'application/json',
+//            dataType: "json",
+//            data: postData,
+//            success: function(result) {
+//                //                  console.log("done");
+//            },
+//            error: function(e) {
+//                console.log(e);
+//            },
+//        });
+//    });
+//}
 
 function getAllRooms() {
     $.ajax({
@@ -119,7 +119,7 @@ function getAllRooms() {
                     searchable: false,
                     sortable: false,
                     render: function(data, type, row) {
-                        return '<button class="editExistingRoom btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '"><i class="fa fa-pencil fa-fw"></button>';
+                        return '<button data-action="edit" class="editExistingRoom btn btn-sm btn-info" data-toggle="modal" data-target="#edit_room_modal" data-id="' + row.id + '"><i class="fa fa-pencil fa-fw"></button>';
                     }
                 },
                 {
@@ -128,9 +128,9 @@ function getAllRooms() {
                     searchable: false,
                     sortable: false,
                     className: "dt-center",
-                    render: function(data) {
+                    render: function(data, type, row) {
                         var roomIdDelete = 'return DeleteRow(' + data + ');';
-                        return '<a href="#" class="btn btn-sm btn-info deleteRoom" onclick="' + roomIdDelete + '"><i class="fa fa-trash fa-fw"></a>';
+                        return '<a href="#" data-action="delete" class="btn btn-sm btn-info deleteRoom" onclick="' + roomIdDelete + '"><i class="fa fa-trash fa-fw"></a>';
                     }
                 }
             ]
